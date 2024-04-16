@@ -1,34 +1,37 @@
 import { View, Text, Image, StyleSheet } from "react-native";
 import { colors } from "../../constants/colors";
 import { spacing } from "../../constants/spacing";
+import { Link } from "expo-router";
 
 export const PostCard = () => {
   return (
-    <View style={styles.postCard}>
-      <Image
-        source={{
-          uri: "https://149361544.v2.pressablecdn.com/wp-content/uploads/2017/10/harmony-bar-crawl-royal-caribbean.jpg",
-        }}
-        style={styles.postCardImage}
-      />
-      <Text style={styles.postCardTitle}>
-        BWB Celebrating Honch&apos;s birthday
-      </Text>
-      <View>
-        <Text style={styles.postCardDescription}>
-          A group of friends gather at a local bar to celebrate one of their
-          birthdays. The atmosphere is lively, with the smell of wings and the
-          sound of TVs playing sports games in the background.
+    <Link href="/posts/1">
+      <View style={styles.postCard}>
+        <Image
+          source={{
+            uri: "https://149361544.v2.pressablecdn.com/wp-content/uploads/2017/10/harmony-bar-crawl-royal-caribbean.jpg",
+          }}
+          style={styles.postCardImage}
+        />
+        <Text style={styles.postCardTitle}>
+          BWB Celebrating Honch&apos;s birthday
         </Text>
+        <View>
+          <Text style={styles.postCardDescription}>
+            A group of friends gather at a local bar to celebrate one of their
+            birthdays. The atmosphere is lively, with the smell of wings and the
+            sound of TVs playing sports games in the background.
+          </Text>
 
-        <Text style={styles.postCardLocation}>
-          📍Brian&apos;s Bar - Stillwater, MN
-        </Text>
-        <Text style={styles.postCardDate}>
-          Posted on November 7, 2022 by @steviebrule
-        </Text>
+          <Text style={styles.postCardLocation}>
+            📍Brian&apos;s Bar - Stillwater, MN
+          </Text>
+          <Text style={styles.postCardDate}>
+            Posted on November 7, 2022 by @steviebrule
+          </Text>
+        </View>
       </View>
-    </View>
+    </Link>
   );
 };
 
