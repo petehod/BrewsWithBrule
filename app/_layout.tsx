@@ -1,12 +1,28 @@
-import { View } from "react-native";
-import { Header } from "../components/Header";
-import { ReactNode } from "react";
+import { BeerMug } from "../components/Icons/BeerMug";
+import { AppContainer } from "../components/AppContainer/AppContainer";
+import { Stack } from "expo-router";
+import { colors } from "../constants/colors";
 
-export default function Layout({ children }: { children: ReactNode }) {
+// TODO: Add a header icon to the Stack navigator
+function HeaderIcon() {
+  return <BeerMug />;
+}
+
+export default function RootLayoutNav() {
   return (
-    <>
-      <Header />
-      <View>{children}</View>
-    </>
+    <AppContainer>
+      <Stack
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: colors.primary,
+          },
+          headerTitleStyle: {
+            fontWeight: "bold",
+            color: colors.white,
+          },
+          headerTitle: "Brews With Brule",
+        }}
+      ></Stack>
+    </AppContainer>
   );
 }
