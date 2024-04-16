@@ -1,8 +1,13 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
+import { PostCard } from "../components/Posts/PostCard";
 
 export default function Page() {
-  return <Text>Hello</Text>;
+  return (
+    <View style={styles.container}>
+      <PostCard />
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -11,18 +16,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 24,
   },
-  main: {
-    flex: 1,
-    justifyContent: "center",
-    maxWidth: 960,
-    marginHorizontal: "auto",
-  },
-  title: {
-    fontSize: 64,
-    fontWeight: "bold",
-  },
-  subtitle: {
-    fontSize: 36,
-    color: "#38434D",
+  homeTitle: {
+    fontSize: 16,
+    fontWeight: "500",
+    marginBottom: 16,
   },
 });
