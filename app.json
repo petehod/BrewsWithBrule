@@ -10,7 +10,7 @@
     "splash": {
       "image": "./assets/mongerHoncho.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#F6A503"
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
