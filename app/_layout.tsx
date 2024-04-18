@@ -1,12 +1,8 @@
 import { BeerMug } from "../components/Icons/BeerMug";
 import { AppContainer } from "../components/AppContainer/AppContainer";
-import { Stack } from "expo-router";
+import { Link, Stack } from "expo-router";
 import { colors } from "../constants/colors";
-
-// TODO: Add a header icon to the Stack navigator
-function HeaderIcon() {
-  return <BeerMug />;
-}
+import { Menu } from "../components/Menu/Menu";
 
 export default function RootLayoutNav() {
   return (
@@ -16,13 +12,14 @@ export default function RootLayoutNav() {
           headerStyle: {
             backgroundColor: colors.primary,
           },
-          headerTitleStyle: {
-            fontWeight: "bold",
-            color: colors.white,
-          },
-          headerTitle: "Brews With Brule",
+          headerTitle: () => (
+            <Link href={""}>
+              <BeerMug height={24} width={24} />
+            </Link>
+          ),
         }}
       ></Stack>
+      <Menu />
     </AppContainer>
   );
 }
