@@ -1,11 +1,19 @@
-import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import {
+  Image,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import image from "../../assets/images/beer.jpg";
 import { spacing } from "../../constants/spacing";
 import { colors } from "../../constants/colors";
 import { Link } from "expo-router";
 export default function Breweries() {
   return (
-    <View style={styles.page}>
+    <ScrollView style={styles.page}>
       <Image
         source={{
           uri: "https://images.unsplash.com/photo-1600788886242-5c96aabe3757?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -50,21 +58,27 @@ export default function Breweries() {
         </View>
 
         <View style={styles.breweryButtonWrapper}>
-          <Link
-            href={"/breweries"}
+          <TouchableOpacity
             style={[styles.breweryButton, styles.breweryButtonDark]}
           >
-            Book a reservation
-          </Link>
-          <Link
-            href={"/breweries"}
+            <Text style={{ color: colors.white, fontWeight: "600" }}>
+              Book a reservation
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
             style={[styles.breweryButton, styles.breweryButtonOutline]}
           >
-            See the list
-          </Link>
+            <Text style={{ color: colors.dark, fontWeight: "600" }}>
+              See the list
+            </Text>
+          </TouchableOpacity>
         </View>
       </View>
-    </View>
+      <Image
+        source={{ uri: "https://www.gm-maps.com/osm_tiles/13/2137/3221.png" }}
+        style={styles.breweryMapImage}
+      />
+    </ScrollView>
   );
 }
 
@@ -72,11 +86,17 @@ const styles = StyleSheet.create({
   page: {
     flex: 1,
     padding: 24,
+    minHeight: "100%",
   },
   breweryImage: {
     marginBottom: spacing.md,
     width: "100%",
     height: 200,
+  },
+  breweryMapImage: {
+    width: "100%",
+    height: 400,
+    marginTop: spacing.xl,
   },
   breweryTitle: {
     fontSize: 24,
@@ -122,6 +142,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     gap: 16,
+    marginVertical: spacing.xxl,
   },
   breweryButton: {
     height: 40,
@@ -132,14 +153,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 4,
     width: "50%",
+    flex: 1,
   },
   breweryButtonDark: {
     backgroundColor: colors.dark,
-    color: colors.white,
   },
   breweryButtonOutline: {
     borderWidth: 1,
     borderColor: colors.dark,
-    color: colors.dark,
   },
 });
